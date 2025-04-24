@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="836,1760" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System.Text.RegularExpressions" xmlns:uascw="clr-namespace:UiPath.Activities.System.Compression.Workflow;assembly=UiPath.System.Activities" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="659.3333333333334,1760" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System.Text.RegularExpressions" xmlns:uascw="clr-namespace:UiPath.Activities.System.Compression.Workflow;assembly=UiPath.System.Activities" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="47">
       <x:String>System.Activities</x:String>
@@ -116,7 +116,7 @@
       <AssemblyReference>System.Linq.Queryable</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="846,1695.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="493.3333333333333,1695.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="ANZPriceIndexRequirements" />
       <Variable x:TypeArguments="x:String" Default="December" Name="Quarter" />
@@ -145,8 +145,8 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="784,96" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Process Started...&quot;]" />
-    <ui:MultipleAssign DisplayName="Multiple Assign - Variables" sap:VirtualizedContainerService.HintSize="784,131.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="431.3333333333333,96" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Process Started...&quot;]" />
+    <ui:MultipleAssign DisplayName="Multiple Assign - Variables" sap:VirtualizedContainerService.HintSize="431.3333333333333,131.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -168,7 +168,7 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:MultipleAssign DisplayName="Multiple Assign - Create Folders" sap:VirtualizedContainerService.HintSize="784,131.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+    <ui:MultipleAssign DisplayName="Multiple Assign - Create Folders" sap:VirtualizedContainerService.HintSize="431.3333333333333,131.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
@@ -190,9 +190,9 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:FolderExistsX DisplayName="Folder Exists - extractedFilesFolderExists" Exists="[downloadedIndexFilesFolderExists]" sap:VirtualizedContainerService.HintSize="784,136.66666666666666" sap2010:WorkflowViewState.IdRef="FolderExistsX_1" Path="[downloadedIndexFilesFolder]" />
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="784,96" sap2010:WorkflowViewState.IdRef="LogMessage_9" Message="[&quot;Creating folders...&quot;]" />
-    <If Condition="[NOT downloadedIndexFilesFolderExists]" DisplayName="If - Create Folders" sap:VirtualizedContainerService.HintSize="784,54" sap2010:WorkflowViewState.IdRef="If_2">
+    <ui:FolderExistsX DisplayName="Folder Exists - extractedFilesFolderExists" Exists="[downloadedIndexFilesFolderExists]" sap:VirtualizedContainerService.HintSize="431.3333333333333,136.66666666666666" sap2010:WorkflowViewState.IdRef="FolderExistsX_1" Path="[downloadedIndexFilesFolder]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="431.3333333333333,96" sap2010:WorkflowViewState.IdRef="LogMessage_9" Message="[&quot;Creating folders...&quot;]" />
+    <If Condition="[NOT downloadedIndexFilesFolderExists]" DisplayName="If - Create Folders" sap:VirtualizedContainerService.HintSize="431.3333333333333,54" sap2010:WorkflowViewState.IdRef="If_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -222,8 +222,8 @@
         </Sequence>
       </If.Else>
     </If>
-    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[ANZPriceIndexRequirements]" DisplayName="Read Range Workbook - ANZ Price Index Requirements" sap:VirtualizedContainerService.HintSize="784,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Indexes" WorkbookPath="ANZ Price Index Requirement.xlsx" />
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[ANZPriceIndexRequirements]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="784,54" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[ANZPriceIndexRequirements]" DisplayName="Read Range Workbook - ANZ Price Index Requirements" sap:VirtualizedContainerService.HintSize="431.3333333333333,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Indexes" WorkbookPath="Data\ANZ Price Index Requirement.xlsx" />
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[ANZPriceIndexRequirements]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="431.3333333333333,54" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
@@ -691,7 +691,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEachRow>
-    <ui:ForEachFileX DisplayName="For Each File in Folder - Downloaded Index Files Folder" Filter="*.zip" Folder="[downloadedIndexFilesFolder]" sap:VirtualizedContainerService.HintSize="784,83.33333333333333" sap2010:WorkflowViewState.IdRef="ForEachFileX_4" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
+    <ui:ForEachFileX DisplayName="For Each File in Folder - Downloaded Index Files Folder" Filter="*.zip" Folder="[downloadedIndexFilesFolder]" sap:VirtualizedContainerService.HintSize="431.3333333333333,83.33333333333333" sap2010:WorkflowViewState.IdRef="ForEachFileX_4" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
       <ui:ForEachFileX.Body>
         <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
           <ActivityAction.Argument1>
@@ -718,7 +718,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEachFileX>
-    <Sequence DisplayName="Sequence - Assign qtrMM and qtrMMM" sap:VirtualizedContainerService.HintSize="784,84.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_32">
+    <Sequence DisplayName="Sequence - Assign qtrMM and qtrMMM" sap:VirtualizedContainerService.HintSize="431.3333333333333,84.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_32">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="qtrMM" />
         <Variable x:TypeArguments="x:String" Name="qtrMMM" />
@@ -844,7 +844,7 @@
         </Assign.Value>
       </Assign>
     </Sequence>
-    <Sequence DisplayName="Sequence - AU - Write to ANZ Index Chart" sap:VirtualizedContainerService.HintSize="784,84.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_27">
+    <Sequence DisplayName="Sequence - AU - Write to ANZ Index Chart" sap:VirtualizedContainerService.HintSize="431.3333333333333,84.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_27">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1057,7 +1057,7 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:ForEachRow>
     </Sequence>
-    <Sequence DisplayName="Sequence - NZ - Write to ANZ Index Chart" sap:VirtualizedContainerService.HintSize="784,104.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_35">
+    <Sequence DisplayName="Sequence - NZ - Write to ANZ Index Chart" sap:VirtualizedContainerService.HintSize="431.3333333333333,104.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_35">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
