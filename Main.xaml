@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="659.3333333333334,1760" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System.Text.RegularExpressions" xmlns:uascw="clr-namespace:UiPath.Activities.System.Compression.Workflow;assembly=UiPath.System.Activities" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="734,10483.333333333334" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System.Text.RegularExpressions" xmlns:uascw="clr-namespace:UiPath.Activities.System.Compression.Workflow;assembly=UiPath.System.Activities" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="47">
       <x:String>System.Activities</x:String>
@@ -116,11 +116,11 @@
       <AssemblyReference>System.Linq.Queryable</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="493.3333333333333,1695.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="744,10418.666666666666" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="ANZPriceIndexRequirements" />
-      <Variable x:TypeArguments="x:String" Default="December" Name="Quarter" />
-      <Variable x:TypeArguments="x:String" Default="2024" Name="Year" />
+      <Variable x:TypeArguments="x:String" Name="Quarter" />
+      <Variable x:TypeArguments="x:String" Name="Year" />
       <Variable x:TypeArguments="x:String" Name="filePathToSave" />
       <Variable x:TypeArguments="x:String" Name="downloadedFileName" />
       <Variable x:TypeArguments="x:String" Name="downloadedIndexFilesFolder" />
@@ -139,22 +139,41 @@
       <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="AuQuarterNameRowNumber" />
       <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="AuFinalColumnName" />
       <Variable x:TypeArguments="x:String" Name="AuFinalSeriesIdColumnFoundAt" />
+      <Variable x:TypeArguments="x:String" Name="qtrMM" />
+      <Variable x:TypeArguments="x:String" Name="qtrMMM" />
+      <Variable x:TypeArguments="x:String" Name="yearYY" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="431.3333333333333,96" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Process Started...&quot;]" />
-    <ui:MultipleAssign DisplayName="Multiple Assign - Variables" sap:VirtualizedContainerService.HintSize="431.3333333333333,131.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="682,96" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Process Started...&quot;]" />
+    <ui:MultipleAssign DisplayName="Multiple Assign - Variables" sap:VirtualizedContainerService.HintSize="682,192.66666666666666" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
-        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_23">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[Quarter]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">March</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_24">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[Year]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">2025</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="x:String">[filePathToSave]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">E:\Learnings\GIT Hub Projects\Project\Web Scrapping ANZ Price Index Files\Downloaded Index Files</InArgument>
+              <InArgument x:TypeArguments="x:String">E:\Learnings\Upwork Projects\GIT Hub Projects\Project\Web Scrapping ANZ Price Index Files\Downloaded Index Files</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
@@ -162,13 +181,13 @@
               <OutArgument x:TypeArguments="x:String">[projectFilePath]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">E:\Learnings\GIT Hub Projects\Project\Web Scrapping ANZ Price Index Files</InArgument>
+              <InArgument x:TypeArguments="x:String">E:\Learnings\Upwork Projects\GIT Hub Projects\Project\Web Scrapping ANZ Price Index Files</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:MultipleAssign DisplayName="Multiple Assign - Create Folders" sap:VirtualizedContainerService.HintSize="431.3333333333333,131.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+    <ui:MultipleAssign DisplayName="Multiple Assign - Create Folders" sap:VirtualizedContainerService.HintSize="682,131.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
@@ -190,9 +209,130 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:FolderExistsX DisplayName="Folder Exists - extractedFilesFolderExists" Exists="[downloadedIndexFilesFolderExists]" sap:VirtualizedContainerService.HintSize="431.3333333333333,136.66666666666666" sap2010:WorkflowViewState.IdRef="FolderExistsX_1" Path="[downloadedIndexFilesFolder]" />
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="431.3333333333333,96" sap2010:WorkflowViewState.IdRef="LogMessage_9" Message="[&quot;Creating folders...&quot;]" />
-    <If Condition="[NOT downloadedIndexFilesFolderExists]" DisplayName="If - Create Folders" sap:VirtualizedContainerService.HintSize="431.3333333333333,54" sap2010:WorkflowViewState.IdRef="If_2">
+    <Sequence DisplayName="Sequence - Assign qtrMM and qtrMMM" sap:VirtualizedContainerService.HintSize="682,84.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_36">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Switch x:TypeArguments="x:String" DisplayName="Switch - Assign qtrMM and qtrMMM" Expression="[Quarter]" sap:VirtualizedContainerService.HintSize="434,54" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:MultipleAssign x:Key="June" sap:VirtualizedContainerService.HintSize="431.3333333333333,131.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_8">
+          <ui:MultipleAssign.AssignOperations>
+            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_15">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[qtrMM]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">06</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_16">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[qtrMMM]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">jun</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+            </scg:List>
+          </ui:MultipleAssign.AssignOperations>
+        </ui:MultipleAssign>
+        <ui:MultipleAssign x:Key="September" sap:VirtualizedContainerService.HintSize="431.3333333333333,131.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_9">
+          <ui:MultipleAssign.AssignOperations>
+            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_17">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[qtrMM]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">09</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_18">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[qtrMMM]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">sep</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+            </scg:List>
+          </ui:MultipleAssign.AssignOperations>
+        </ui:MultipleAssign>
+        <ui:MultipleAssign x:Key="December" sap:VirtualizedContainerService.HintSize="431.3333333333333,131.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_10">
+          <ui:MultipleAssign.AssignOperations>
+            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_19">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[qtrMM]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">12</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_20">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[qtrMMM]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">dec</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+            </scg:List>
+          </ui:MultipleAssign.AssignOperations>
+        </ui:MultipleAssign>
+        <ui:MultipleAssign x:Key="March" sap:VirtualizedContainerService.HintSize="431.3333333333333,131.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_11">
+          <ui:MultipleAssign.AssignOperations>
+            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_21">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[qtrMM]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">03</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_22">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[qtrMMM]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">mar</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+            </scg:List>
+          </ui:MultipleAssign.AssignOperations>
+        </ui:MultipleAssign>
+      </Switch>
+      <Assign DisplayName=" Assign - yearYY" sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_3">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[yearYY]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[Year.Substring(2,2)]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,96" sap2010:WorkflowViewState.IdRef="LogMessage_27" Message="[&quot;qtrMM - &quot;+qtrMM + vbCrLf + &quot; qtrMMM - &quot;+qtrMMM +vbCrLf + &quot;yearYY - &quot;+yearYY]" />
+      <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_4">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Object">[quarterToSearchFor]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:Object">[qtrMMM + " Qtr " + Year]</InArgument>
+        </Assign.Value>
+      </Assign>
+    </Sequence>
+    <ui:FolderExistsX DisplayName="Folder Exists - extractedFilesFolderExists" Exists="[downloadedIndexFilesFolderExists]" sap:VirtualizedContainerService.HintSize="682,136.66666666666666" sap2010:WorkflowViewState.IdRef="FolderExistsX_1" Path="[downloadedIndexFilesFolder]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="682,96" sap2010:WorkflowViewState.IdRef="LogMessage_9" Message="[&quot;Creating folders...&quot;]" />
+    <If Condition="[NOT downloadedIndexFilesFolderExists]" DisplayName="If - Create Folders" sap:VirtualizedContainerService.HintSize="682,54" sap2010:WorkflowViewState.IdRef="If_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -222,20 +362,21 @@
         </Sequence>
       </If.Else>
     </If>
-    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[ANZPriceIndexRequirements]" DisplayName="Read Range Workbook - ANZ Price Index Requirements" sap:VirtualizedContainerService.HintSize="431.3333333333333,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Indexes" WorkbookPath="Data\ANZ Price Index Requirement.xlsx" />
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[ANZPriceIndexRequirements]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="431.3333333333333,54" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[ANZPriceIndexRequirements]" DisplayName="Read Range Workbook - ANZ Price Index Requirements" sap:VirtualizedContainerService.HintSize="682,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Indexes" WorkbookPath="Data\ANZ Price Index Requirement.xlsx" />
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[ANZPriceIndexRequirements]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="682,8611.333333333334" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="609.3333333333334,2050" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="648,8491.333333333334" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="547.3333333333334,1939.3333333333333" sap2010:WorkflowViewState.IdRef="IfElseIf_1">
+            <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="586,8380.666666666666" sap2010:WorkflowViewState.IdRef="IfElseIf_1">
               <ui:IfElseIf.ConditionBlocks>
                 <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
                   <ui:IfElseIfBlock BlockType="If" Condition="[CurrentRow(&quot;Market&quot;).ToString = &quot;Australia&quot; AND CurrentRow(&quot;Series Type&quot;).ToString = &quot;CPI&quot;]">
@@ -246,7 +387,7 @@
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Australia | Australian Bureau of Statistics" sap:VirtualizedContainerService.HintSize="432,54" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" ScopeGuid="630e4dec-8778-4e31-93fa-75a048e2cff7" Version="V2">
+                        <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Australia | Australian Bureau of Statistics" sap:VirtualizedContainerService.HintSize="432,54" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" IsIncognito="True" ScopeGuid="630e4dec-8778-4e31-93fa-75a048e2cff7" Version="V2">
                           <uix:NApplicationCard.Body>
                             <ActivityAction x:TypeArguments="x:Object">
                               <ActivityAction.Argument>
@@ -256,6 +397,7 @@
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                                 <uix:NClick ClickType="Single" DisplayName="Click 'Consumer Price'" sap:VirtualizedContainerService.HintSize="338,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="630e4dec-8778-4e31-93fa-75a048e2cff7" Version="V3">
@@ -304,14 +446,14 @@
                   </ui:IfElseIfBlock>
                   <ui:IfElseIfBlock BlockType="ElseIf" Condition="[CurrentRow(&quot;Market&quot;).ToString = &quot;Australia&quot; AND CurrentRow(&quot;Series Type&quot;).ToString = &quot;WPI&quot;]">
                     <ui:IfElseIfBlock.Then>
-                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="400,84.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="496,1935.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_6">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Australia | Australian Bureau of Statistics" sap:VirtualizedContainerService.HintSize="434,1824.6666666666667" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="Simulate" ScopeGuid="630e4dec-8778-4e31-93fa-75a048e2cff7" Version="V2">
+                        <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Australia | Australian Bureau of Statistics" sap:VirtualizedContainerService.HintSize="434,1824.6666666666667" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="Simulate" IsIncognito="True" ScopeGuid="630e4dec-8778-4e31-93fa-75a048e2cff7" Version="V2">
                           <uix:NApplicationCard.Body>
                             <ActivityAction x:TypeArguments="x:Object">
                               <ActivityAction.Argument>
@@ -325,7 +467,7 @@
                                 </sap:WorkflowViewStateService.ViewState>
                                 <uix:NClick ClickType="Single" DisplayName="Click 'Wage Price'" sap:VirtualizedContainerService.HintSize="338,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_9" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="630e4dec-8778-4e31-93fa-75a048e2cff7" Version="V3">
                                   <uix:NClick.Target>
-                                    <uix:TargetAnchorable BrowserURL="https://www.abs.gov.au/statistics/economy/price-indexes-and-inflation/wage-price-index-australia" DesignTimeRectangle="60, 628, 508, 33" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'Wage Price'" FullSelectorArgument="[string.Format(&quot;&lt;webctrl aaname='Wage Price Index, Australia, {0} {1}' parentclass='views-row' /&gt;&quot;, Quarter, Year)]" FuzzySelectorArgument="[string.Format(&quot;&lt;webctrl aaname='Wage Price Index, Australia, {0} {1}' parentclass='views-row' tag='A' type='' class='' check:text='Wage Price Index, Australia, December 2024' /&gt;&quot;, Quarter, Year)]" Guid="fa78a3bd-da4e-46fd-a714-b074fe2c66c0" ImageBase64="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" InformativeScreenshot="e4edd22c3b69591cad2f4e8fcd403158.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='*Australia | Australian Bureau of Statistics' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                                    <uix:TargetAnchorable BrowserURL="https://www.abs.gov.au/statistics/economy/price-indexes-and-inflation/wage-price-index-australia" DesignTimeRectangle="60, 628, 508, 33" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'Wage Price'" FullSelectorArgument="[string.Format(&quot;&lt;webctrl parentid='block-views-block-topic-releases-listing-topic-*' tag='A' innertext='Wage Price Index, Australia, {0} {1}' /&gt;&quot;, Quarter, Year)]" FuzzySelectorArgument="[string.Format(&quot;&lt;webctrl aaname='Wage Price Index, Australia, {0} {1}' parentclass='views-row' tag='A' type='' class='' check:text='Wage Price Index, Australia, December 2024' /&gt;&quot;, Quarter, Year)]" Guid="fa78a3bd-da4e-46fd-a714-b074fe2c66c0" ImageBase64="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" InformativeScreenshot="e4edd22c3b69591cad2f4e8fcd403158.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='*Australia | Australian Bureau of Statistics' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
                                   </uix:NClick.Target>
                                 </uix:NClick>
                                 <uix:NClick ClickType="Single" DisplayName="Click 'Data download'" sap:VirtualizedContainerService.HintSize="338,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="630e4dec-8778-4e31-93fa-75a048e2cff7" Version="V3">
@@ -344,7 +486,7 @@
                                   </uix:NGetText.Target>
                                 </uix:NGetText>
                                 <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="338,92" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[downloadedFileName]" />
-                                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into - File Path To Save" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="338,232.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_2" InteractionMode="HardwareEvents" Text="[filePathToSave +&quot;\&quot;+downloadedFileName]" Version="V3" />
+                                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into - File Path To Save" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="338,232.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_2" InteractionMode="HardwareEvents" Text="[filePathToSave +&quot;\&quot;+&quot;Time-series-spreadsheets-all (1).zip&quot;]" Version="V3" />
                                 <uix:NClick ClickType="Single" DelayAfter="7" DisplayName="Click 'Save'" sap:VirtualizedContainerService.HintSize="338,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_8" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="630e4dec-8778-4e31-93fa-75a048e2cff7" Version="V3">
                                   <uix:NClick.Target>
                                     <uix:TargetAnchorable DesignTimeRectangle="1352, 922, 132, 39" DesignTimeScaleFactor="1.5" ElementType="Button" FriendlyName="'unchecked'" FullSelectorArgument="&lt;wnd ctrlid='1' title='&amp;amp;Save' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='1' title='&amp;amp;Save' check:text='unchecked' /&gt;" Guid="61f6b817-3403-4e58-bb33-3e26601afa73" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIgAAAArCAYAAACjMsASAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAJdSURBVHhe7Zw9TgMxEEb3BjnPStwg59gKOhqqwAnYjg5u4QYkEOQAIIRSLKKgA4VIadKAokHj9SZe/0yIoCD2Vzwp8XrczMvMJFJczOdzAiBG4S4AYANBgIgnyOPrjPbOnmlwMqHi6AlkwvD8Refe9aEnCG9gMY6v3mm2+KLlcgkygHN9Op7S4HjiSdITZHjxQvX4wzsA5MHo8k13j6ggXGpQOfJltvjUVUQUxA0CecEOQBAQBYIAEQgCRCAIEIEgQASCABEIAkQgCBBJXJCG6rKgouhT1k1gLwiRriCqCsugKn8NRElUEFM5KhV4BrYhUUEUVdxOIMivSVSQJamK542S6sZ/1icwp1hi6XPKmppYnP2sqam0zwnG7RbJCrKqIpsS5c0kbdxqzcwylXLijAyrdfN+fVYabS5hQVqautz6E92vGuFE63M37Gnl+kkV+78kL0jHWpRQwgJtxpKpja1IrfY7VcatJh2x9R0iG0FaTNuxkt/OKv2vw97c4SZaVwZLGHf2cIAgO0SvGriJN3iCOGv6td1OIuekQHaCtBVDEiTw7YTp5gnFMW6biswgCZCoINxK7JnB4P266v9e0rUcTxAjQVnaw6l/dl82RVVo7w6RsCD+LBAcUJ35geUJtRimG3SjrcRIksr8wSQqCPgrIAgQgSBABIIAEQgCRCAIEIEgQEQUhO8Gwb/784X/3S8KwndDjC7fvUCQB6d3U33TUFSQx9cPXUX4thlUknzgXPPlMZx7diAqSCfJ8OyBioMbKvavQQYMDm9pr7735AgKAoANBAEiEASIfANR+lK9dr9d1wAAAABJRU5ErkJggg==" InformativeScreenshot="5cbc26e595cad55e43453d66516d0d20.png" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='#32770' title='Save As' /&gt;" SearchSteps="Selector, Image" Version="V1" Visibility="Interactive" />
@@ -369,14 +511,14 @@
                   </ui:IfElseIfBlock>
                   <ui:IfElseIfBlock BlockType="ElseIf" Condition="[CurrentRow(&quot;Market&quot;).ToString = &quot;Australia&quot; AND CurrentRow(&quot;Series Type&quot;).ToString = &quot;PPI&quot;]">
                     <ui:IfElseIfBlock.Then>
-                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="494,164.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="400,84.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_8">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Australia | Australian Bureau of Statistics" sap:VirtualizedContainerService.HintSize="432,54" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="Simulate" ScopeGuid="630e4dec-8778-4e31-93fa-75a048e2cff7" Version="V2">
+                        <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Australia | Australian Bureau of Statistics" sap:VirtualizedContainerService.HintSize="434,1824.6666666666667" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="Simulate" IsIncognito="True" ScopeGuid="630e4dec-8778-4e31-93fa-75a048e2cff7" Version="V2">
                           <uix:NApplicationCard.Body>
                             <ActivityAction x:TypeArguments="x:Object">
                               <ActivityAction.Argument>
@@ -390,7 +532,7 @@
                                 </sap:WorkflowViewStateService.ViewState>
                                 <uix:NClick ClickType="Single" DisplayName="Click 'Producer Price'" sap:VirtualizedContainerService.HintSize="338,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_10" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="630e4dec-8778-4e31-93fa-75a048e2cff7" Version="V3">
                                   <uix:NClick.Target>
-                                    <uix:TargetAnchorable BrowserURL="https://www.abs.gov.au/statistics/economy/price-indexes-and-inflation/producer-price-indexes-australia" DesignTimeRectangle="60, 637, 576, 33" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'Producer Price'" FullSelectorArgument="[string.Format(&quot;&lt;webctrl aaname='Producer Price Indexes, Australia, {0} {1}' parentclass='views-row' /&gt;&quot;, Quarter, Year)]" FuzzySelectorArgument="[string.Format(&quot;&lt;webctrl aaname='Producer Price Indexes, Australia, {0} {1}' parentclass='views-row' tag='A' type='' class='' check:text='Producer Price Indexes, Australia, December 2024' /&gt;&quot;, Quarter, Year)]" Guid="e55b1fdc-155d-497d-b7de-5c2dbcb3ad4a" ImageBase64="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" InformativeScreenshot="d7b6b31ac1a5047553a4f03f6eb6f553.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='*Australia | Australian Bureau of Statistics' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                                    <uix:TargetAnchorable BrowserURL="https://www.abs.gov.au/statistics/economy/price-indexes-and-inflation/producer-price-indexes-australia" DesignTimeRectangle="60, 637, 576, 33" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'Producer Price'" FullSelectorArgument="[string.Format(&quot;&lt;webctrl parentid='block-views-block-topic-releases-listing-topic-*' tag='A' innertext='Producer Price Indexes, Australia, {0} {1}' /&gt;&quot;, Quarter, Year)]" FuzzySelectorArgument="[string.Format(&quot;&lt;webctrl aaname='Producer Price Indexes, Australia, {0} {1}' parentclass='views-row' tag='A' type='' class='' check:text='Producer Price Indexes, Australia, December 2024' /&gt;&quot;, Quarter, Year)]" Guid="e55b1fdc-155d-497d-b7de-5c2dbcb3ad4a" ImageBase64="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" InformativeScreenshot="d7b6b31ac1a5047553a4f03f6eb6f553.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='*Australia | Australian Bureau of Statistics' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
                                   </uix:NClick.Target>
                                 </uix:NClick>
                                 <uix:NClick ClickType="Single" DisplayName="Click 'Data download'" sap:VirtualizedContainerService.HintSize="338,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_11" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="630e4dec-8778-4e31-93fa-75a048e2cff7" Version="V3">
@@ -424,7 +566,7 @@
                           </uix:NApplicationCard.TargetApp>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
@@ -434,21 +576,22 @@
                   </ui:IfElseIfBlock>
                   <ui:IfElseIfBlock BlockType="ElseIf" Condition="[CurrentRow(&quot;Market&quot;).ToString = &quot;New Zealand&quot; AND CurrentRow(&quot;Series Type&quot;).ToString = &quot;CPI&quot;]">
                     <ui:IfElseIfBlock.Then>
-                      <TryCatch sap:VirtualizedContainerService.HintSize="200,54" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                      <TryCatch sap:VirtualizedContainerService.HintSize="534.6666666666666,1980.6666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_1">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <TryCatch.Try>
-                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="452.6666666666667,369.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="496,1741.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_9">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: CSV files for download | Stats NZ" sap:VirtualizedContainerService.HintSize="390.6666666666667,54" sap2010:WorkflowViewState.IdRef="NApplicationCard_4" InteractionMode="DebuggerApi" ScopeGuid="860f2ebf-d322-4fb8-8e30-7d781832f49c" Version="V2">
+                            <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: CSV files for download | Stats NZ" sap:VirtualizedContainerService.HintSize="434,1426" sap2010:WorkflowViewState.IdRef="NApplicationCard_4" InteractionMode="DebuggerApi" IsIncognito="True" ScopeGuid="860f2ebf-d322-4fb8-8e30-7d781832f49c" Version="V2">
                               <uix:NApplicationCard.Body>
                                 <ActivityAction x:TypeArguments="x:Object">
                                   <ActivityAction.Argument>
@@ -472,7 +615,7 @@
                                     </uix:NGetText>
                                     <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="338,92" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="[downloadedFileName]" />
                                     <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into - File Path To Save" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="338,232.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_4" InteractionMode="HardwareEvents" Text="[filePathToSave +&quot;\&quot;+downloadedFileName]" Version="V3" />
-                                    <uix:NClick ClickType="Single" DelayAfter="5" DisplayName="Click 'Save'" sap:VirtualizedContainerService.HintSize="338,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_15" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="860f2ebf-d322-4fb8-8e30-7d781832f49c" Version="V3">
+                                    <uix:NClick ClickType="Single" DelayAfter="15" DisplayName="Click 'Save'" sap:VirtualizedContainerService.HintSize="338,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_15" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="860f2ebf-d322-4fb8-8e30-7d781832f49c" Version="V3">
                                       <uix:NClick.Target>
                                         <uix:TargetAnchorable DesignTimeRectangle="1352, 922, 132, 39" DesignTimeScaleFactor="1.5" ElementType="Button" FriendlyName="'unchecked'" FullSelectorArgument="&lt;wnd ctrlid='1' title='&amp;amp;Save' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='1' title='&amp;amp;Save' check:text='unchecked' /&gt;" Guid="61f6b817-3403-4e58-bb33-3e26601afa73" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIgAAAArCAYAAACjMsASAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAJdSURBVHhe7Zw9TgMxEEb3BjnPStwg59gKOhqqwAnYjg5u4QYkEOQAIIRSLKKgA4VIadKAokHj9SZe/0yIoCD2Vzwp8XrczMvMJFJczOdzAiBG4S4AYANBgIgnyOPrjPbOnmlwMqHi6AlkwvD8Refe9aEnCG9gMY6v3mm2+KLlcgkygHN9Op7S4HjiSdITZHjxQvX4wzsA5MHo8k13j6ggXGpQOfJltvjUVUQUxA0CecEOQBAQBYIAEQgCRCAIEIEgQASCABEIAkQgCBBJXJCG6rKgouhT1k1gLwiRriCqCsugKn8NRElUEFM5KhV4BrYhUUEUVdxOIMivSVSQJamK542S6sZ/1icwp1hi6XPKmppYnP2sqam0zwnG7RbJCrKqIpsS5c0kbdxqzcwylXLijAyrdfN+fVYabS5hQVqautz6E92vGuFE63M37Gnl+kkV+78kL0jHWpRQwgJtxpKpja1IrfY7VcatJh2x9R0iG0FaTNuxkt/OKv2vw97c4SZaVwZLGHf2cIAgO0SvGriJN3iCOGv6td1OIuekQHaCtBVDEiTw7YTp5gnFMW6biswgCZCoINxK7JnB4P266v9e0rUcTxAjQVnaw6l/dl82RVVo7w6RsCD+LBAcUJ35geUJtRimG3SjrcRIksr8wSQqCPgrIAgQgSBABIIAEQgCRCAIEIEgQEQUhO8Gwb/784X/3S8KwndDjC7fvUCQB6d3U33TUFSQx9cPXUX4thlUknzgXPPlMZx7diAqSCfJ8OyBioMbKvavQQYMDm9pr7735AgKAoANBAEiEASIfANR+lK9dr9d1wAAAABJRU5ErkJggg==" InformativeScreenshot="5cbc26e595cad55e43453d66516d0d20.png" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='#32770' title='Save As' /&gt;" SearchSteps="Selector, Image" Version="V1" Visibility="Interactive" />
                                       </uix:NClick.Target>
@@ -486,16 +629,16 @@
                               </uix:NApplicationCard.TargetApp>
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                             </uix:NApplicationCard>
-                            <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="[extractedFilesFolder]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="390.6666666666667,164.66666666666666" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="True" Path="[filePathToSave +&quot;\&quot;+downloadedFileName]" />
+                            <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="[extractedFilesFolder]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="434,164.66666666666666" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="True" Path="[filePathToSave +&quot;\&quot;+downloadedFileName]" />
                           </Sequence>
                         </TryCatch.Try>
                         <TryCatch.Catches>
-                          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="457.3333333333333,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="500.6666666666667,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -515,13 +658,13 @@
                   </ui:IfElseIfBlock>
                   <ui:IfElseIfBlock BlockType="ElseIf" Condition="[CurrentRow(&quot;Market&quot;).ToString = &quot;New Zealand&quot; AND CurrentRow(&quot;Series Type&quot;).ToString = &quot;WPI&quot;]">
                     <ui:IfElseIfBlock.Then>
-                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="452.6666666666667,164.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="496,1536.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_12">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: CSV files for download | Stats NZ" sap:VirtualizedContainerService.HintSize="390.6666666666667,54" sap2010:WorkflowViewState.IdRef="NApplicationCard_5" InteractionMode="DebuggerApi" ScopeGuid="860f2ebf-d322-4fb8-8e30-7d781832f49c" Version="V2">
+                        <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: CSV files for download | Stats NZ" sap:VirtualizedContainerService.HintSize="434,1426" sap2010:WorkflowViewState.IdRef="NApplicationCard_5" InteractionMode="DebuggerApi" IsIncognito="True" ScopeGuid="860f2ebf-d322-4fb8-8e30-7d781832f49c" Version="V2">
                           <uix:NApplicationCard.Body>
                             <ActivityAction x:TypeArguments="x:Object">
                               <ActivityAction.Argument>
@@ -545,7 +688,7 @@
                                 </uix:NGetText>
                                 <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="338,92" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="[downloadedFileName]" />
                                 <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into - File Path To Save" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="338,232.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_5" InteractionMode="HardwareEvents" Text="[filePathToSave +&quot;\&quot;+downloadedFileName]" Version="V3" />
-                                <uix:NClick ClickType="Single" DelayAfter="5" DisplayName="Click 'Save'" sap:VirtualizedContainerService.HintSize="338,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_17" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="860f2ebf-d322-4fb8-8e30-7d781832f49c" Version="V3">
+                                <uix:NClick ClickType="Single" DelayAfter="15" DisplayName="Click 'Save'" sap:VirtualizedContainerService.HintSize="338,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_17" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="860f2ebf-d322-4fb8-8e30-7d781832f49c" Version="V3">
                                   <uix:NClick.Target>
                                     <uix:TargetAnchorable DesignTimeRectangle="1352, 922, 132, 39" DesignTimeScaleFactor="1.5" ElementType="Button" FriendlyName="'unchecked'" FullSelectorArgument="&lt;wnd ctrlid='1' title='&amp;amp;Save' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='1' title='&amp;amp;Save' check:text='unchecked' /&gt;" Guid="61f6b817-3403-4e58-bb33-3e26601afa73" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIgAAAArCAYAAACjMsASAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAJdSURBVHhe7Zw9TgMxEEb3BjnPStwg59gKOhqqwAnYjg5u4QYkEOQAIIRSLKKgA4VIadKAokHj9SZe/0yIoCD2Vzwp8XrczMvMJFJczOdzAiBG4S4AYANBgIgnyOPrjPbOnmlwMqHi6AlkwvD8Refe9aEnCG9gMY6v3mm2+KLlcgkygHN9Op7S4HjiSdITZHjxQvX4wzsA5MHo8k13j6ggXGpQOfJltvjUVUQUxA0CecEOQBAQBYIAEQgCRCAIEIEgQASCABEIAkQgCBBJXJCG6rKgouhT1k1gLwiRriCqCsugKn8NRElUEFM5KhV4BrYhUUEUVdxOIMivSVSQJamK542S6sZ/1icwp1hi6XPKmppYnP2sqam0zwnG7RbJCrKqIpsS5c0kbdxqzcwylXLijAyrdfN+fVYabS5hQVqautz6E92vGuFE63M37Gnl+kkV+78kL0jHWpRQwgJtxpKpja1IrfY7VcatJh2x9R0iG0FaTNuxkt/OKv2vw97c4SZaVwZLGHf2cIAgO0SvGriJN3iCOGv6td1OIuekQHaCtBVDEiTw7YTp5gnFMW6biswgCZCoINxK7JnB4P266v9e0rUcTxAjQVnaw6l/dl82RVVo7w6RsCD+LBAcUJ35geUJtRimG3SjrcRIksr8wSQqCPgrIAgQgSBABIIAEQgCRCAIEIEgQEQUhO8Gwb/784X/3S8KwndDjC7fvUCQB6d3U33TUFSQx9cPXUX4thlUknzgXPPlMZx7diAqSCfJ8OyBioMbKvavQQYMDm9pr7735AgKAoANBAEiEASIfANR+lK9dr9d1wAAAABJRU5ErkJggg==" InformativeScreenshot="5cbc26e595cad55e43453d66516d0d20.png" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='#32770' title='Save As' /&gt;" SearchSteps="Selector, Image" Version="V1" Visibility="Interactive" />
                                   </uix:NClick.Target>
@@ -559,7 +702,7 @@
                           </uix:NApplicationCard.TargetApp>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
@@ -569,14 +712,14 @@
                   </ui:IfElseIfBlock>
                   <ui:IfElseIfBlock BlockType="ElseIf" Condition="[CurrentRow(&quot;Market&quot;).ToString = &quot;New Zealand&quot; AND CurrentRow(&quot;Series Type&quot;).ToString = &quot;PPI&quot; AND CurrentRow(&quot;Series Official Source&quot;).ToString = &quot;Stats NZ Tatauranga Aotearoa&quot;]">
                     <ui:IfElseIfBlock.Then>
-                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="452.6666666666667,164.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="496,1536.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_14">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: CSV files for download | Stats NZ" sap:VirtualizedContainerService.HintSize="390.6666666666667,54" sap2010:WorkflowViewState.IdRef="NApplicationCard_6" InteractionMode="DebuggerApi" ScopeGuid="860f2ebf-d322-4fb8-8e30-7d781832f49c" Version="V2">
+                        <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: CSV files for download | Stats NZ" sap:VirtualizedContainerService.HintSize="434,1426" sap2010:WorkflowViewState.IdRef="NApplicationCard_6" InteractionMode="DebuggerApi" IsIncognito="True" ScopeGuid="860f2ebf-d322-4fb8-8e30-7d781832f49c" Version="V2">
                           <uix:NApplicationCard.Body>
                             <ActivityAction x:TypeArguments="x:Object">
                               <ActivityAction.Argument>
@@ -600,7 +743,7 @@
                                 </uix:NGetText>
                                 <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="338,92" sap2010:WorkflowViewState.IdRef="WriteLine_6" Text="[downloadedFileName]" />
                                 <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into - File Path To Save" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="338,232.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_6" InteractionMode="HardwareEvents" Text="[filePathToSave +&quot;\&quot;+downloadedFileName]" Version="V3" />
-                                <uix:NClick ClickType="Single" DelayAfter="5" DisplayName="Click 'Save'" sap:VirtualizedContainerService.HintSize="338,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_19" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="860f2ebf-d322-4fb8-8e30-7d781832f49c" Version="V3">
+                                <uix:NClick ClickType="Single" DelayAfter="10" DisplayName="Click 'Save'" sap:VirtualizedContainerService.HintSize="338,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_19" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="860f2ebf-d322-4fb8-8e30-7d781832f49c" Version="V3">
                                   <uix:NClick.Target>
                                     <uix:TargetAnchorable DesignTimeRectangle="1352, 922, 132, 39" DesignTimeScaleFactor="1.5" ElementType="Button" FriendlyName="'unchecked'" FullSelectorArgument="&lt;wnd ctrlid='1' title='&amp;amp;Save' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='1' title='&amp;amp;Save' check:text='unchecked' /&gt;" Guid="61f6b817-3403-4e58-bb33-3e26601afa73" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIgAAAArCAYAAACjMsASAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAJdSURBVHhe7Zw9TgMxEEb3BjnPStwg59gKOhqqwAnYjg5u4QYkEOQAIIRSLKKgA4VIadKAokHj9SZe/0yIoCD2Vzwp8XrczMvMJFJczOdzAiBG4S4AYANBgIgnyOPrjPbOnmlwMqHi6AlkwvD8Refe9aEnCG9gMY6v3mm2+KLlcgkygHN9Op7S4HjiSdITZHjxQvX4wzsA5MHo8k13j6ggXGpQOfJltvjUVUQUxA0CecEOQBAQBYIAEQgCRCAIEIEgQASCABEIAkQgCBBJXJCG6rKgouhT1k1gLwiRriCqCsugKn8NRElUEFM5KhV4BrYhUUEUVdxOIMivSVSQJamK542S6sZ/1icwp1hi6XPKmppYnP2sqam0zwnG7RbJCrKqIpsS5c0kbdxqzcwylXLijAyrdfN+fVYabS5hQVqautz6E92vGuFE63M37Gnl+kkV+78kL0jHWpRQwgJtxpKpja1IrfY7VcatJh2x9R0iG0FaTNuxkt/OKv2vw97c4SZaVwZLGHf2cIAgO0SvGriJN3iCOGv6td1OIuekQHaCtBVDEiTw7YTp5gnFMW6biswgCZCoINxK7JnB4P266v9e0rUcTxAjQVnaw6l/dl82RVVo7w6RsCD+LBAcUJ35geUJtRimG3SjrcRIksr8wSQqCPgrIAgQgSBABIIAEQgCRCAIEIEgQEQUhO8Gwb/784X/3S8KwndDjC7fvUCQB6d3U33TUFSQx9cPXUX4thlUknzgXPPlMZx7diAqSCfJ8OyBioMbKvavQQYMDm9pr7735AgKAoANBAEiEASIfANR+lK9dr9d1wAAAABJRU5ErkJggg==" InformativeScreenshot="5cbc26e595cad55e43453d66516d0d20.png" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='#32770' title='Save As' /&gt;" SearchSteps="Selector, Image" Version="V1" Visibility="Interactive" />
                                   </uix:NClick.Target>
@@ -614,7 +757,7 @@
                           </uix:NApplicationCard.TargetApp>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
@@ -631,7 +774,7 @@
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Infrastructure and public transport contract price adjustment | Waka Kotahi open" sap:VirtualizedContainerService.HintSize="427.3333333333333,54" sap2010:WorkflowViewState.IdRef="NApplicationCard_7" InteractionMode="DebuggerApi" ScopeGuid="90569a10-2147-4e8a-b29e-ff0bd3233275" Version="V2">
+                        <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Infrastructure and public transport contract price adjustment | Waka Kotahi open" sap:VirtualizedContainerService.HintSize="427.3333333333333,54" sap2010:WorkflowViewState.IdRef="NApplicationCard_7" InteractionMode="DebuggerApi" IsIncognito="True" ScopeGuid="90569a10-2147-4e8a-b29e-ff0bd3233275" Version="V2">
                           <uix:NApplicationCard.Body>
                             <ActivityAction x:TypeArguments="x:Object">
                               <ActivityAction.Argument>
@@ -686,12 +829,12 @@
       </ui:ForEachRow.Body>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEachRow>
-    <ui:ForEachFileX DisplayName="For Each File in Folder - Downloaded Index Files Folder" Filter="*.zip" Folder="[downloadedIndexFilesFolder]" sap:VirtualizedContainerService.HintSize="431.3333333333333,83.33333333333333" sap2010:WorkflowViewState.IdRef="ForEachFileX_4" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
+    <ui:ForEachFileX DisplayName="For Each File in Folder - Downloaded Index Files Folder" Filter="*.zip" Folder="[downloadedIndexFilesFolder]" sap:VirtualizedContainerService.HintSize="682,83.33333333333333" sap2010:WorkflowViewState.IdRef="ForEachFileX_4" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
       <ui:ForEachFileX.Body>
         <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
           <ActivityAction.Argument1>
@@ -718,7 +861,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEachFileX>
-    <Sequence DisplayName="Sequence - Assign qtrMM and qtrMMM" sap:VirtualizedContainerService.HintSize="431.3333333333333,84.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_32">
+    <Sequence DisplayName="Sequence - Assign qtrMM and qtrMMM" sap:VirtualizedContainerService.HintSize="682,84.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_32">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="qtrMM" />
         <Variable x:TypeArguments="x:String" Name="qtrMMM" />
@@ -844,7 +987,7 @@
         </Assign.Value>
       </Assign>
     </Sequence>
-    <Sequence DisplayName="Sequence - AU - Write to ANZ Index Chart" sap:VirtualizedContainerService.HintSize="431.3333333333333,84.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_27">
+    <Sequence DisplayName="Sequence - AU - Write to ANZ Index Chart" sap:VirtualizedContainerService.HintSize="682,84.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_27">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -859,7 +1002,7 @@
                 <OutArgument x:TypeArguments="x:String">[filePathToSave]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">E:\Learnings\GIT Hub Projects\Project\Web Scrapping ANZ Price Index Files\Downloaded Index Files</InArgument>
+                <InArgument x:TypeArguments="x:String">E:\Learnings\Upwork Projects\GIT Hub Projects\Project\Web Scrapping ANZ Price Index Files\Downloaded Index Files</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
@@ -867,7 +1010,7 @@
                 <OutArgument x:TypeArguments="x:String">[projectFilePath]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">E:\Learnings\GIT Hub Projects\Project\Web Scrapping ANZ Price Index Files</InArgument>
+                <InArgument x:TypeArguments="x:String">E:\Learnings\Upwork Projects\GIT Hub Projects\Project\Web Scrapping ANZ Price Index Files</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
           </scg:List>
@@ -881,17 +1024,17 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="400,300.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_28">
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="630.6666666666666,890.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_28">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:LogMessage DisplayName="Log Message - Series Type" sap:VirtualizedContainerService.HintSize="338,96" sap2010:WorkflowViewState.IdRef="LogMessage_12" Message="[&quot;Series Type is: &quot; + CurrentRow(&quot;SeriesType&quot;).ToString +vbCrLf +&quot;Series ID is: &quot;+CurrentRow(&quot;SeriesID&quot;).ToString]" />
-              <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="338,54" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+              <ui:LogMessage DisplayName="Log Message - Series Type" sap:VirtualizedContainerService.HintSize="568.6666666666666,96" sap2010:WorkflowViewState.IdRef="LogMessage_12" Message="[&quot;Series Type is: &quot; + CurrentRow(&quot;SeriesType&quot;).ToString +vbCrLf +&quot;Series ID is: &quot;+CurrentRow(&quot;SeriesID&quot;).ToString]" />
+              <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="568.6666666666666,644" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
@@ -1013,7 +1156,7 @@
                       <ActivityAction.Argument>
                         <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                       </ActivityAction.Argument>
-                      <If Condition="[exception.Message.Contains(&quot;Excel File&quot;) AND exception.Message.Contains(&quot;was not found&quot;)]" sap:VirtualizedContainerService.HintSize="200,54" sap2010:WorkflowViewState.IdRef="If_3">
+                      <If Condition="[exception.Message.Contains(&quot;Excel File&quot;) AND exception.Message.Contains(&quot;was not found&quot;)]" sap:VirtualizedContainerService.HintSize="478.6666666666667,54" sap2010:WorkflowViewState.IdRef="If_3">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1057,10 +1200,11 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:ForEachRow>
     </Sequence>
-    <Sequence DisplayName="Sequence - NZ - Write to ANZ Index Chart" sap:VirtualizedContainerService.HintSize="431.3333333333333,104.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_35">
+    <Sequence DisplayName="Sequence - NZ - Write to ANZ Index Chart" sap:VirtualizedContainerService.HintSize="682,84.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_35">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Sequence>
